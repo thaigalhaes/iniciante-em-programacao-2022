@@ -1,33 +1,38 @@
 const quadrados = document.querySelectorAll(".quadrado-jogo");
-let checarVez = true;
 
+//variaveis dos jogadores//
 const X = "X";
 const O = "O";
 
-document.addEventListener ("click", (event)=> {
-    if (event.target.matches(".quadrado-jogo")){
-        jogar(event.target.id);
+function proximo(){
+    jogador === "X" ? jogador = "O" : jogador = "X";
+    proximaVez (jogador);
+
+}
+let jogador = "X";
+proximaVez (jogador);
+
+//Tabuleiro
+function selecionarArea(posicaoLinha, posicaoColuna) {
+   const getText = document.querySelector(`[data-linha='${posicaoLinha}'][data-coluna='${posicaoColuna}']`).textContent;
+   if (jogador === "X"){
+    if (getText ==""){
+        colocaSimbolos (X, posicaoLinha,posicaoColuna);
+        checarVitoria ();
+        proximo();
     }
-});
-
-
-function jogar(id){
-    const quadrados = document.getElementById(id);
-    vez = checarVez ? X : O;
+   }
+   else {
+    if (getText === ""){
+        colocaSimbolos (O, posicaoLinha,posicaoColuna);
+        checarVitoria ();
+        proximo(); 
+    } 
+   }
 }
-quadrados.textContent = vez;
-checarVez = !checarVez;
-checarVencedor (vez);
 
-function checarVencedor (vez){
-
-}
 
 function reiniciarJogo() {
 
 }
 
-function selecionarArea(posicaoLinha, posicaoColuna) {
-    console.log("chamando a funçao")
-    console.log(posicaoLinha, posicaoColuna);
-}
