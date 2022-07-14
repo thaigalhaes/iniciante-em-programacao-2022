@@ -16,7 +16,7 @@ proximaVez (jogador);
 function selecionarArea(posicaoLinha, posicaoColuna) {
    const getText = document.querySelector(`[data-linha='${posicaoLinha}'][data-coluna='${posicaoColuna}']`).textContent;
    if (jogador === "X"){
-    if (getText ==""){
+    if (getText ===""){
         colocaSimbolos (X, posicaoLinha,posicaoColuna);
         checarVitoria ();
         proximo();
@@ -49,10 +49,10 @@ function verificarQuadrados (quadrado1, quadrado2, quadrado3){
 //Vencedor
 function checarVitoria () {
     const quadrado = document.querySelectorAll(".quadrado-jogo");
-    if ( checarQuadrados (quadrado [0], quadrado [1], quadrado [2]) | checarQuadrados (quadrado [3], quadrado [4], quadrado [5])||
-    checarQuadrados (quadrado [6], quadrado [7], quadrado [8])|| checarQuadrados (quadrado [0], quadrado [3], quadrado [6])||
-    checarQuadrados (quadrado [2], quadrado [5], quadrado [8])||checarQuadrados (quadrado [0], quadrado [4], quadrado [8])||
-    checarQuadrados (quadrado [2], quadrado [4], quadrado [6])) {
+    if ( verificarQuadrados (quadrado [0], quadrado [1], quadrado [2]) | verificarQuadrados (quadrado [3], quadrado [4], quadrado [5])||
+    verificarQuadrados (quadrado [6], quadrado [7], quadrado [8])|| verificarQuadrados (quadrado [0], quadrado [3], quadrado [6])||
+    verificarQuadrados (quadrado [2], quadrado [5], quadrado [8])||verificarQuadrados(quadrado [0], quadrado [4], quadrado [8])||
+    verificarQuadrados (quadrado [2], quadrado [4], quadrado [6])) {
     quadrados.forEach ((quadrado) =>{quadrado.removeAttribute("onclick");});
     mostrarResultado ('O ${jogador Ganhou');
     }
