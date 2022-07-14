@@ -6,25 +6,25 @@ const O = "O";
 
 function proximo(){
     jogador === "X" ? jogador = "O" : jogador = "X";
-    proximaVez (jogador);
+    marcarJogadorAtivo (jogador);
 
 }
 let jogador = "X";
-proximaVez (jogador);
+marcarJogadorAtivo (jogador);
 
 //Tabuleiro
 function selecionarArea(posicaoLinha, posicaoColuna) {
    const getText = document.querySelector(`[data-linha='${posicaoLinha}'][data-coluna='${posicaoColuna}']`).textContent;
    if (jogador === "X"){
     if (getText ===""){
-        colocaSimbolos (X, posicaoLinha,posicaoColuna);
+        desenharSimbolo(X, posicaoLinha,posicaoColuna);
         checarVitoria ();
         proximo();
     }
    }
    else {
     if (getText === ""){
-        colocaSimbolos (O, posicaoLinha,posicaoColuna);
+        desenharSimbolo(O, posicaoLinha,posicaoColuna);
         checarVitoria ();
         proximo(); 
     } 
@@ -32,7 +32,7 @@ function selecionarArea(posicaoLinha, posicaoColuna) {
 }
 
 function verificarTabuleiro (){
-    for (let i in quadrados [i].textContent==''){
+    for (let i in quadrados ){
         if (quadrados [i].textContent===''){
             return false;
         }
@@ -51,18 +51,19 @@ function checarVitoria () {
     const quadrado = document.querySelectorAll(".quadrado-jogo");
     if ( verificarQuadrados (quadrado [0], quadrado [1], quadrado [2]) | verificarQuadrados (quadrado [3], quadrado [4], quadrado [5])||
     verificarQuadrados (quadrado [6], quadrado [7], quadrado [8])|| verificarQuadrados (quadrado [0], quadrado [3], quadrado [6])||
-    verificarQuadrados (quadrado [2], quadrado [5], quadrado [8])||verificarQuadrados(quadrado [0], quadrado [4], quadrado [8])||
-    verificarQuadrados (quadrado [2], quadrado [4], quadrado [6])) {
-    quadrados.forEach ((quadrado) =>{quadrado.removeAttribute("onclick");});
-    mostrarResultado ('O ${jogador Ganhou');
+    verificarQuadrados (quadrado [1], quadrado [4], quadrado [7])||verificarQuadrados(quadrado [2], quadrado [5], quadrado [8])||
+    verificarQuadrados (quadrado [0], quadrado [4], quadrado [8]) || verificarQuadrados (quadrado [2], quadrado [4], quadrado [6])) {
+   
+     quadrados.forEach ((quadrado) => {quadrado.removeAttribute("onclick");});
+    exibirResultado ("O jogador ${jogador} Ganhou");
     }
     else {
-        verificarTabuleiro ()? mostrarResultado ("Teve um Empate"):'';
+        verificarTabuleiro () ? exibirResultado ("Teve um Empate"):'';
     }
 }
 
 //Reiniciar
 function reiniciarJogo() {
-windown.location.reload();
+
 }
 
