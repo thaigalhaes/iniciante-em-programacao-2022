@@ -48,7 +48,7 @@ function verificarQuadrados (quadrado1, quadrado2, quadrado3){
 
 //Vencedor
 function checarVitoria () {
-    const qu = document.querySelectorAll(".quadrado-jogo");
+    const quadrado = document.querySelectorAll(".quadrado-jogo");
     if ( checarQuadrados (quadrado [0], quadrado [1], quadrado [2]) | checarQuadrados (quadrado [3], quadrado [4], quadrado [5])||
     checarQuadrados (quadrado [6], quadrado [7], quadrado [8])|| checarQuadrados (quadrado [0], quadrado [3], quadrado [6])||
     checarQuadrados (quadrado [2], quadrado [5], quadrado [8])||checarQuadrados (quadrado [0], quadrado [4], quadrado [8])||
