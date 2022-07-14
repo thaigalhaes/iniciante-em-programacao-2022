@@ -4,6 +4,7 @@ const quadrados = document.querySelectorAll(".quadrado-jogo");
 const X = "X";
 const O = "O";
 
+//Proximo jogador 
 function proximo(){
     jogador === "X" ? jogador = "O" : jogador = "X";
     marcarJogadorAtivo (jogador);
@@ -12,7 +13,7 @@ function proximo(){
 let jogador = "X";
 marcarJogadorAtivo (jogador);
 
-//Tabuleiro
+//Tabuleiro do jogo da velha 
 function selecionarArea(posicaoLinha, posicaoColuna) {
    const getText = document.querySelector(`[data-linha='${posicaoLinha}'][data-coluna='${posicaoColuna}']`).textContent;
    if (jogador === "X"){
@@ -46,7 +47,7 @@ function verificarQuadrados (quadrado1, quadrado2, quadrado3){
     return false;
 }
 
-//Vencedor
+//Final do jogo
 function checarVitoria () {
     const quadrado = document.querySelectorAll(".quadrado-jogo");
     if ( verificarQuadrados (quadrado [0], quadrado [1], quadrado [2]) | verificarQuadrados (quadrado [3], quadrado [4], quadrado [5])||
@@ -55,8 +56,10 @@ function checarVitoria () {
     verificarQuadrados (quadrado [0], quadrado [4], quadrado [8]) || verificarQuadrados (quadrado [2], quadrado [4], quadrado [6])) {
    
      quadrados.forEach ((quadrado) => {quadrado.removeAttribute("onclick");});
+     //se houve um vencedor
     exibirResultado (`O jogador ${jogador} ganhou` );
     }
+    //se houve um empate
     else {
         verificarTabuleiro () ? exibirResultado ("Teve um Empate"):'';
     }
