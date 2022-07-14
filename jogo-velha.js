@@ -55,7 +55,7 @@ function checarVitoria () {
     verificarQuadrados (quadrado [0], quadrado [4], quadrado [8]) || verificarQuadrados (quadrado [2], quadrado [4], quadrado [6])) {
    
      quadrados.forEach ((quadrado) => {quadrado.removeAttribute("onclick");});
-    exibirResultado ("O jogador ${jogador} Ganhou");
+    exibirResultado ("Temos um vencedor" );
     }
     else {
         verificarTabuleiro () ? exibirResultado ("Teve um Empate"):'';
@@ -64,6 +64,6 @@ function checarVitoria () {
 
 //Reiniciar
 function reiniciarJogo() {
-
+location.reload ();
 }
 
