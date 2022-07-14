@@ -19,6 +19,9 @@ quadrados.textContent = vez;
 checarVez = !checarVez;
 checarVencedor (vez);
 
+function checarVencedor (vez){
+
+}
 
 function reiniciarJogo() {
 
