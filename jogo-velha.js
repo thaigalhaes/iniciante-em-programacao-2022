@@ -31,6 +31,22 @@ function selecionarArea(posicaoLinha, posicaoColuna) {
    }
 }
 
+function verificarTabuleiro (){
+    for (let i in quadrados [i].textContent==''){
+        if (quadrados [i].textContent===''){
+            return false;
+        }
+    }
+    return true;
+}
+function verificarQuadrados (quadrado1, quadrado2, quadrado3){
+    if(quadrado1.textContent === quadrado2.textContent && quadrado1.textContent === quadrado3.textContent && quadrado1.textContent !== ""){
+        return true;
+    }
+    return false;
+}
+
+//Vencedor
 function checarVitoria () {
     const qu = document.querySelectorAll(".quadrado-jogo");
     if ( checarQuadrados (quadrado [0], quadrado [1], quadrado [2]) | checarQuadrados (quadrado [3], quadrado [4], quadrado [5])||
@@ -45,8 +61,8 @@ function checarVitoria () {
     }
 }
 
-
+//Reiniciar
 function reiniciarJogo() {
-
+windown.location.reload();
 }
 
