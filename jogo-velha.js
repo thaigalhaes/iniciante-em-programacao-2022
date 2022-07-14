@@ -1,14 +1,24 @@
 const quadrados = document.querySelectorAll(".quadrado-jogo");
-console.log(quadrados);
-
+let checarVez = true;
 
 const X = "X";
 const O = "O";
 
-let jogador1 = X;
-let tabela = [];
+document.addEventListener ("click", (event)=> {
+    if (event.target.matches(".quadrado-jogo")){
+        jogar(event.target.id);
+    }
+});
 
-tabuleiro
+
+function jogar(id){
+    const quadrados = document.getElementById(id);
+    vez = checarVez ? X : O;
+}
+quadrados.textContent = vez;
+checarVez = !checarVez;
+checarVencedor (vez);
+
 
 function reiniciarJogo() {
 
